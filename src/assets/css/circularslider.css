@@ -1,10 +1,10 @@
 .slider-container {
-  background: url(../image/bg.png);
+  background: url(/src/assets/image/bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 950px;
-  padding: 100px 0 110px;
+  height: 850px;
+  padding: 10px 0 60px;
   background-position: center;
 }
 .slider-container .container{
@@ -56,18 +56,6 @@
   line-height: 22px ;
 }
 
-.slider-container {
-  background: url(../image/bg.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 950px;
-  padding: 10px 0 60px;
-  background-position: center;
-}
-.slider-container .container{
-  margin-top: 50px;
-}
 
 .slide img{
   height: 470px;
@@ -146,16 +134,15 @@
 }
 
 .box {
-  width: 320px;
-  height: 440px;
+  width: 315px;
+  height: 420px;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0; 
-  animation-fill-mode: forwards; 
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
-
 .box img {
   height: 100%;
   width: 100%;
@@ -172,7 +159,7 @@
 /* Animation for the center box (move to center from the right) */
 @keyframes moveToCenterNext {
   0% {
-    transform: translateX(250px) translateY(50px) rotate(20deg); /* Starting position for the right box */
+    transform: translateX(250px) translateY(50px) rotate(22deg); /* Starting position for the right box */
     opacity: 1; /* Initially hidden */
   }
   100% {
@@ -184,7 +171,7 @@
 /* Animation for the center box (move to center from the left) */
 @keyframes moveToCenterPrev {
   0% {
-    transform: translateX(-250px) translateY(0px) rotate(-20deg); /* Starting position for the left box */
+    transform: translateX(-250px) translateY(0px) rotate(-22deg); /* Starting position for the left box */
     opacity: 1; /* Initially hidden */
   }
   100% {
@@ -200,7 +187,7 @@
     opacity: 1; /* Fully visible */
   }
   100% {
-    transform: translateX(-250px) rotate(-20deg); /* Move to the left and rotate */
+    transform: translateX(-250px) rotate(-22deg); /* Move to the left and rotate */
     opacity: 1; /* Fade out */
   }
 }
@@ -212,7 +199,7 @@
     opacity: 1; /* Fully visible */
   }
   100% {
-    transform: translateX(250px) rotate(20deg); /* Move to the right and rotate */
+    transform: translateX(250px) rotate(22deg); /* Move to the right and rotate */
     opacity: 1; /* Fade out */
   }
 }
@@ -220,11 +207,11 @@
 /* Animation for moving the left box to the right (forward animation) */
 @keyframes moveToRightNext {
   0% {
-    transform: translateX(500px) translateY(100px) rotate(20deg); /* Starting position for the left box */
+    transform: translateX(500px) translateY(100px) rotate(22deg); /* Starting position for the left box */
     opacity: 1; /* Initially hidden */
   }
   100% {
-    transform: translateX(250px) rotate(20deg); /* Move to the right and rotate */
+    transform: translateX(250px) rotate(22deg); /* Move to the right and rotate */
     opacity: 1; /* Keep hidden */
   }
 }
@@ -232,11 +219,11 @@
 /* Animation for moving the right box to the left (backward animation) */
 @keyframes moveToLeftPrev {
   0% {
-    transform: translateX(-500px) translateY(100px) rotate(-20deg); /* Starting position for the right box */
+    transform: translateX(-500px) translateY(100px) rotate(-22deg); /* Starting position for the right box */
     opacity: 1; /* Initially hidden */
   }
   100% {
-    transform: translateX(-250px) rotate(-20deg); /* Move to the left and rotate */
+    transform: translateX(-250px) rotate(-22deg); /* Move to the left and rotate */
     opacity: 1; /* Keep hidden */
   }
 }
@@ -246,24 +233,23 @@
   z-index: 2;
   background-color: transparent;
   position: absolute;
-  top: 70px;
+  top: 50px;
 }
 
-/* Class for right box */
 .right {
   z-index: 1;
   background-color: transparent;
   position: absolute;
-  right: 307px;
-  top: 150px;
+  right: 240px;
+  top: 125px;
 }
 
 .left {
   z-index: 1;
   background-color: transparent;
   position: absolute;
-  top: 150px;
-  left: 307px;
+  top: 125px;
+  left: 240px;
 }
 
 
@@ -298,7 +284,7 @@
   justify-content: center;
   flex-direction: row;
   position: absolute;
-  bottom: 180px;
+  bottom: 200px;
   left: 37%;
 }
 .dots-container .dot {

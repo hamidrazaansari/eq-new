@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import ProgImg from '../assets/image/personalize-prog.png'
@@ -9,6 +9,11 @@ import Slider from 'react-slick'
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { HiOutlineArrowLongLeft } from "react-icons/hi2";
 import ScrollAnimation from 'react-animate-on-scroll';
+import Checkmarks from '../assets/image/checkmark.png'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
+import parse from 'html-react-parser';
+import { API_URL } from '../utills/BaseUrl'
 
 
 
@@ -34,7 +39,24 @@ const PrevArrow = (props) => {
   };
 
 
-function PersonalizeProg() {
+function Programlisting() {
+    const [data , setData] = useState('')
+    const [loading , setLoading] = useState(true);
+
+    const {id} = useParams();
+
+    useEffect(() => {
+        axios.get(`${API_URL}/programs?category=${id}`)
+          .then(response => {
+            setData(response.data.body);
+            setLoading(false);
+          })
+          .catch(error => {
+            console.error("Error fetching data:", error.message);
+            setLoading(false);
+          });
+      }, []);
+
     const settings = {
         dots: true, 
         infinite: true,
@@ -50,67 +72,44 @@ function PersonalizeProg() {
         <div className='personalize-program' >
             <NavBar />
             <section >
-                <div className="container">
+                <div className="container px-5">
                     <h2>Personalized Training  <span>Program</span> </h2>
                     <div className="breadcrumb">
                         <a href="/">Homepage</a>  <span></span>
                         <a href="/">Personalized Training Program</a>
                     </div>
                 </div>
-                <div className="container">
+                <div className="container px-5">
                     <div className="row">
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="program-box">
-                                <img src={ProgImg} alt="Personal Training Trail" />
-                                <h3>Trail Plans</h3>
-                                <div className="populaty">
-                                    <p className='rating'>5 <IoMdStar style={{ fontSize: "10px", position: "relative", right: "5px" }} /></p>
-                                    <p><FaRegUser /> <span>2445 People taken the plan </span></p>
-                                </div>
-                                <span className='time'>45 Minutes</span>
-                                <button className='BookNowBtn '>Book Now</button>
+                        {
+                            data && data.map((item)=>{
+                                return(
+                                    <div className="col-lg-4 col-md-6 col-12">
+                                    <div className="program-box">
+                                        <img src={ProgImg} alt="Personal Training Trail" />
+                                        <h3>{item.name}</h3>
+                                        <div className='para mb-4 mt-2'>{parse(item.descriptions.slice(403,600 ) + (item.descriptions.length > 600 ? "..." : ""))}</div>
+                                        <div className="point">
+                                            <div className="row  mb-3 px-3">
+                                                {item.usp && item.usp.map((usp)=>(
+                                                    <>
+                                                <div className="col-6 p-0 py-2 d-flex align-items-center justify-content-start">
+                                                    <img src={Checkmarks} alt="" />
+                                                    <p className=''>{usp}</p>
+                                                </div>
+                                                    </>
+                                                ))}
 
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="program-box">
-                                <img src={ProgImg} alt="Personal Training Trail" />
-                                <h3>Starter Plans (45minutes)</h3>
-                                <div className="populaty">
-                                    <p className='rating'>5 <IoMdStar style={{ fontSize: "10px", position: "relative", right: "5px" }} /></p>
-                                    <p><FaRegUser /> <span>2445 People taken the plan </span></p>
+                                            </div>
+                                        </div>
+                                        <span className='time'>{ item.subCategory ? item.subCategory && item.subCategory.name : 'Trail Program'}</span>
+                                       <Link to={`/program/${item._id}`}><button className='BookNowBtn '>Book Now</button></Link> 
+        
+                                    </div>
                                 </div>
-                                <span className='time'>45 Minutes</span>
-                                <button className='BookNowBtn '>Book Now</button>
-
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="program-box">
-                                <img src={ProgImg} alt="Personal Training Trail" />
-                                <h3>weterm Plans (60 minutes)</h3>
-                                <div className="populaty">
-                                    <p className='rating'>5 <IoMdStar style={{ fontSize: "10px", position: "relative", right: "5px" }} /></p>
-                                    <p><FaRegUser /> <span>2445 People taken the plan </span></p>
-                                </div>
-                                <span className='time'>45 Minutes</span>
-                                <button className='BookNowBtn '>Book Now</button>
-
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-12">
-                            <div className="program-box">
-                                <img src={ProgImg} alt="Personal Training Trail" />
-                                <h3>Trail Plans</h3>
-                                <div className="populaty">
-                                    <p className='rating'>5 <IoMdStar style={{ fontSize: "10px", position: "relative", right: "5px" }} /></p>
-                                    <p><FaRegUser /> <span>2445 People taken the plan </span></p>
-                                </div>
-                                <span className='time'>45 Minutes</span>
-                                <button className='BookNowBtn '>Book Now</button>
-
-                            </div>
-                        </div>
+                                )
+                            })
+                        }
 
                     </div>
                     <div className="row my-5">
@@ -123,7 +122,7 @@ function PersonalizeProg() {
                         </div>
                     </div>
                 </div>
-                <div className="container">
+                <div className="container px-5">
                     <div className="other-plan">
                         <h2 className='other-plan-heading'>See Others plans</h2>
 
@@ -168,28 +167,9 @@ function PersonalizeProg() {
                    </div>
                 </div>
             </section>
-            <section class="mailing">
-                <div className="container">
-                    <ScrollAnimation animateIn="fadeInUp">
-                        <h2 className='text-center'>Join the Equilibrium Mailing List</h2>
-                    </ScrollAnimation>
-                    <ScrollAnimation animateIn="fadeInUp">
-                        <p className='text-center'>Be the first to hear about competitions & offers.</p>
-                    </ScrollAnimation>
-                    {/* <ScrollAnimation animateIn="fadeInUp">   */}
-                    <form action="" className='d-flex align-items-center justify-content-center'>
-                        <input type="text" placeholder='Email Address' className='form-control' />
-                        <button className='form-submit '>Subscribe</button>
-                    </form>
-                    {/* </ScrollAnimation>     */}
-                </div>
-            </section>
-            <section className='footer'>
-                <Footer />
-
-            </section>
+            <Footer/>
         </div>
     )
 }
 
-export default PersonalizeProg
+export default Programlisting

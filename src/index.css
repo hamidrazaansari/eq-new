@@ -3,20 +3,28 @@
   font-weight: 400;
   background-color: #FFFFFF;
   font-synthesis: none;
-  
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+ 
 }
 .body{
   box-sizing: border-box;
   padding-top: 100PX;
   overflow-x: hidden ;
 }
+
 @font-face {
   font-family: futuramdbt;
   src: url(assets/fonts/FuturaMediumBT.ttf);
+}
+@font-face {
+  font-family: lightfuturamdbt;
+  src: url(assets/fonts/FutuMdIt.ttf);
+}
+@font-face {
+  font-family: boldfuturamdbt;
+  src: url(assets/fonts/FuturaBoldBT.ttf);
 }
 @font-face {
   font-family: PlayFireDisplay;

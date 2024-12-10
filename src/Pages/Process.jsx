@@ -426,7 +426,7 @@ const Process = () => {
                                     >
                                         <img src={SunRise} alt="7 AM - 9 AM" />
                                         <p className='mb-0'>7 AM - 9 AM</p>
-                                        <span>Group Session</span>
+                                        <span>Group Available</span>
                                     </div>
                                 </div>
                                 <div className="col">
@@ -576,7 +576,7 @@ const Process = () => {
                         <div className="position-sticky">
                             <div className="d-flex justify-content-between">
                                 <div></div>
-                                <button className='help-btn'><IoMdHelpCircleOutline /> Help</button>
+                                {/* <button className='help-btn'><IoMdHelpCircleOutline /> Help</button> */}
                             </div>
                         </div>
                     </div>
@@ -635,7 +635,7 @@ const Process = () => {
                         <div className="container">
                             <div className='process-heading'>
                                 <h2 className='mb-0'>Preview</h2>
-                                <p className='text-center mb-5'>Lorem ipsum dolor sit amet, consectetur</p>
+                                <p className='text-center mb-5'>"Unlocking the Secrets: A Sneak Peek into What’s Next!"</p>
                             </div>
                             <div className="preview">
                                 <div className='range-box'>

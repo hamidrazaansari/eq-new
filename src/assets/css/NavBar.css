@@ -31,3 +31,17 @@
     height: 50px;
     margin-right: 40px;
 }
+.account{
+    background: transparent;
+    border: none;
+    font-size: 19px;
+    font-family: 'futuramdbt';
+    color: #006D5A;
+}
+.account img {
+    height: 25px;
+    margin-right: 0px;
+    margin-bottom: 4px;
+    border: 2px solid #006D5A;
+    border-radius: 50%;
+}

@@ -30,7 +30,7 @@
     top: 10px;
 }
 .personalize-program .navbar-brand img{
-    margin: 0;
+    margin-left: 40px;
 }
 .personalize-program .program-box {
     display: flex;
@@ -42,6 +42,7 @@
     border-radius: 10px;
     margin: 20px 0;
     background: #F3F3F3;
+
 
 }
 .personalize-program .program-box:hover{
@@ -92,12 +93,11 @@
     bottom: 1px;
     left: 4px;
 }
-.program-box button{
-        width: 85%;
-        background: transparent;
-        padding: 15px 0;
-        border: 1px solid grey;
-        border-radius: 6px;
+.program-box button {
+    background: transparent;
+    padding: 8px 88px;
+    border: 1px solid grey;
+    border-radius: 6px;
 }
 .recall{
     background-color: #F3F3F3;
@@ -189,4 +189,91 @@ top: 0;
     margin: 10px 30px;
     font-family: openSanceSemiBold;
     margin-bottom: 23px;
+}
+.personalize-program .mailing h2 {
+    font-family: futuramdbt;
+    color: #000;
+    font-size: 35px;
+    -webkit-text-stroke: 1px #000;
+    letter-spacing: 1.2px;
+}
+.program-box .para{
+    color: #06060687;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 200;
+    font-family: 'futuramdbt';
+    line-height: 15px;
+    padding: 0 29px;
+}
+.point p{
+    margin-bottom: 0;
+    font-size: 15px;
+    font-family: 'futuramdbt';
+    color: #00000076;
+}
+.point img{
+    height: 20px;
+    margin-right: 6px;
+}
+.point{
+    width: 74%;
+}
+.point .row{
+    background: #ffff;
+}
+
+/* faq page css */
+.faq{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(243,243,243,1) 44%);
+    padding: 50px 0;
+}
+.faq h1{
+    font-family: PlayFireDisplay;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+    letter-spacing: 1.5px;
+}
+.faq h2{
+    font-family: 'futuramdbt';
+    font-size: 30px !important;
+
+}
+.accordion-box{
+    padding: 0 5%;
+}
+.faq .accordion-item:first-of-type  , .accordion-item:first-of-type>.accordion-header .accordion-button{
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.faq .accordion-item:last-of-type  , .accordion-item:last-of-type>.accordion-header .accordion-button{
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.faq .accordion-button:not(.collapsed){
+    background-color: #ffff;
+    color: #000 !important;
+}
+
+.faq .accordion-item{
+    border: none !important;
+    border: none !important;
+    box-shadow: 1px 1px 3px #0000004c !important;
+    border-radius: 0 !important;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+.faq .accordion-button:focus{
+    box-shadow: none !important;
+}
+.faq .accordion-button{
+    border-radius: 0 !important;
+    font-size: 20px !important;
+
+}
+.faq .accordion-body{
+    font-size: 15px !important;
+    color: #000000d1 !important;
 }

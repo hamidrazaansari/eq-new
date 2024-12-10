@@ -20,7 +20,6 @@ function Hero() {
     const [inView, setInView] = useState(false);
 
     const scrollContainerRef = useRef(null);
-    console.log(scrollContainerRef)
 
 
     const handleEnterViewport = () => {
@@ -28,7 +27,7 @@ function Hero() {
     };
 
     const handleExitViewport = () => {
-        setInView(false); // Optional: Do something when the section leaves view
+        setInView(false); 
     };
 
     return (
@@ -179,28 +178,7 @@ function Hero() {
             <section className="community">
                 <Community />
             </section>
-            <section class="mailing">
-                <div className="container">
-                    <ScrollAnimation animateIn="fadeInUp">
-                        <h2 className='text-center'>Join the Equilibrium Mailing List</h2>
-                    </ScrollAnimation>
-                    <ScrollAnimation animateIn="fadeInUp">
-                        <p className='text-center'>Be the first to hear about competitions & offers.</p>
-                    </ScrollAnimation>
-                    {/* <ScrollAnimation animateIn="fadeInUp">   */}
-                    <form action="" className='d-flex align-items-center justify-content-center'>
-                        <input type="text" placeholder='Email Address' className='form-control' />
-                        <button className='form-submit '>Subscribe</button>
-                    </form>
-                    {/* </ScrollAnimation>     */}
-                </div>
-            </section>
-            <section className='footer'>
-                <Footer />
-
-            </section>
-
-
+            <Footer/>
         </div>
     )
 }
